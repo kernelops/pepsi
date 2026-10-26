@@ -48,7 +48,7 @@ void Server::send_results(vector<Ciphertext>& results, stringstream& data_stream
 }
 
 uint64_t Server::server_get(uint64_t mu_prime, uint64_t bin_index, uint64_t effective_lambda){
-    return bin_index*mu_prime % (1 << effective_lambda);
+    return bin_index*mu_prime % (1ULL << effective_lambda);
 }
 
 

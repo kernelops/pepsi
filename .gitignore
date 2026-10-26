@@ -1,0 +1,10 @@
+# Build output (also contains the downloaded Microsoft SEAL sources)
+build/
+
+# Per-run metrics written by the executables
+results/
+
+# Python / Jupyter
+__pycache__/
+.ipynb_checkpoints/
+.venv/

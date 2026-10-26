@@ -31,8 +31,8 @@ int main(int argc, char* argv[]) {
     uint64_t hw=8;
 
     static struct option long_options[] = {
-        {"effective_bitlength", optional_argument, 0, 'l'},
-        {"hamming_weight", optional_argument, 0, 'h'},
+        {"effective_bitlength", required_argument, 0, 'l'},
+        {"hamming_weight", required_argument, 0, 'h'},
         {0, 0, 0, 0}
     };
 

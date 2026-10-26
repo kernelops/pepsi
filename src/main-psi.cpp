@@ -27,10 +27,10 @@ int main(int argc, char* argv[]) {
     uint64_t label_byte_size=1;
 
     static struct option long_options[] = {
-        {"client_set", optional_argument, 0, 'c'},
-        {"server_set", optional_argument, 0, 's'},
-        {"task", optional_argument, 0, 't'},
-        {"label", optional_argument, 0, 'l'},
+        {"client_set", required_argument, 0, 'c'},
+        {"server_set", required_argument, 0, 's'},
+        {"task", required_argument, 0, 't'},
+        {"label", required_argument, 0, 'l'},
         {0, 0, 0, 0}
     };
 

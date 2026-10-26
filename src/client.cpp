@@ -1,6 +1,7 @@
 #include "client.h"
 #include <iomanip>
 #include <fstream>
+#include <filesystem>
 
 using namespace std;
 using namespace seal;
@@ -66,7 +67,7 @@ void Client::send_parameters_and_keys(bool debug_mode)
 }
 
 uint64_t Client::client_get(uint64_t gamma_prime, uint64_t bin_index, uint64_t effective_lambda){
-    return bin_index*gamma_prime % (1 << effective_lambda);
+    return bin_index*gamma_prime % (1ULL << effective_lambda);
 }
 
 void Client::encrypt_and_send(vector<Plaintext>& plaintexts, bool _verbose) {
@@ -220,9 +221,14 @@ bool Client::run_protocol(Params params, bool _verbose)
         string filename_string="results/" + to_string(filename) + ".csv";
         cout << "Writing to file " << filename_string << endl;
 
-        // rely on the user to ensure that results directory exists
+        // results/ is relative to the current working directory
+        std::error_code mkdir_error;
+        std::filesystem::create_directories("results", mkdir_error);
         ofstream outFile;
         outFile.open(filename_string);
+        if (!outFile) {
+            cerr << "Could not open " << filename_string << " for writing" << endl;
+        }
         for (pair<string, uint64_t> metric : this->metrics->metrics_) {
             outFile << metric.first << "," << metric.second << endl;
         }

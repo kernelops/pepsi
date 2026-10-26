@@ -39,10 +39,10 @@ int main(int argc, char* argv[]) {
     uint64_t type = 1;
 
     static struct option long_options[] = {
-        {"mu", optional_argument, 0, 'm'},
-        {"gamma", optional_argument, 0, 'g'},
-        {"task", optional_argument, 0, 't'},
-        {"effective_bitlength", optional_argument, 0, 'l'},
+        {"mu", required_argument, 0, 'm'},
+        {"gamma", required_argument, 0, 'g'},
+        {"task", required_argument, 0, 't'},
+        {"effective_bitlength", required_argument, 0, 'l'},
         {0, 0, 0, 0}
     };
 
